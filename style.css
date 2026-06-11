@@ -1,0 +1,371 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #f0f4f8;
+    color: #1e293b;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.tela {
+    display: none;
+}
+
+.tela.ativa {
+    display: block;
+}
+
+/* ==================== Tela de Início ==================== */
+
+#tela-inicio {
+    text-align: center;
+    padding-top: 60px;
+}
+
+#tela-inicio h1 {
+    font-size: 2.2rem;
+    color: #1e40af;
+    margin-bottom: 8px;
+}
+
+.subtitulo {
+    font-size: 1.1rem;
+    color: #64748b;
+    margin-bottom: 32px;
+}
+
+.instrucoes {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px 32px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    text-align: left;
+    margin-bottom: 32px;
+}
+
+.instrucoes p {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    color: #475569;
+    line-height: 1.5;
+}
+
+.instrucoes p:last-child {
+    margin-bottom: 0;
+}
+
+/* ==================== Tela de Jogo ==================== */
+
+.cabecalho {
+    margin-bottom: 24px;
+}
+
+.progresso {
+    display: block;
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-bottom: 8px;
+}
+
+.barra-progresso {
+    width: 100%;
+    height: 6px;
+    background: #e2e8f0;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.barra-progresso-preenchimento {
+    height: 100%;
+    background: #2563eb;
+    border-radius: 3px;
+    transition: width 0.3s ease;
+    width: 0%;
+}
+
+.card-estado {
+    background: #fff;
+    border-radius: 16px;
+    padding: 40px 24px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    margin-bottom: 24px;
+}
+
+.atributo-label {
+    display: block;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #64748b;
+    margin-bottom: 8px;
+}
+
+.atributo-valor {
+    display: block;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #1e40af;
+}
+
+.perguntas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.pergunta {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.pergunta-texto {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 14px;
+}
+
+.opcoes {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.btn-opcao {
+    display: block;
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    background: #fff;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    text-align: left;
+    color: #334155;
+}
+
+.btn-opcao:hover:not(.correta):not(.incorreta):not(:disabled) {
+    border-color: #93c5fd;
+    background: #eff6ff;
+}
+
+.btn-opcao:disabled {
+    cursor: default;
+    opacity: 0.7;
+}
+
+.btn-opcao.correta {
+    border-color: #16a34a;
+    background: #f0fdf4;
+    color: #15803d;
+    font-weight: 600;
+}
+
+.btn-opcao.incorreta {
+    border-color: #dc2626;
+    background: #fef2f2;
+    color: #dc2626;
+}
+
+.btn-opcao.revelada {
+    border-color: #16a34a;
+    background: #f0fdf4;
+    color: #15803d;
+}
+
+.feedback {
+    display: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.feedback.acerto {
+    display: block;
+    color: #16a34a;
+}
+
+.feedback.erro {
+    display: block;
+    color: #dc2626;
+}
+
+/* ==================== Botões ==================== */
+
+.btn-primario {
+    display: block;
+    width: 100%;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 10px;
+    background: #2563eb;
+    color: #fff;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.btn-primario:hover {
+    background: #1d4ed8;
+}
+
+.btn-secundario {
+    display: block;
+    width: 100%;
+    padding: 12px 24px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    background: #fff;
+    color: #64748b;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    margin-top: 8px;
+}
+
+.btn-secundario:hover {
+    border-color: #cbd5e1;
+    color: #475569;
+}
+
+/* ==================== Tela de Resultados ==================== */
+
+#tela-resultados {
+    text-align: center;
+    padding-top: 40px;
+}
+
+#tela-resultados h1 {
+    font-size: 1.8rem;
+    color: #1e40af;
+    margin-bottom: 24px;
+}
+
+.resultado-destaque {
+    margin-bottom: 16px;
+}
+
+.resultado-porcentagem {
+    display: block;
+    font-size: 4rem;
+    font-weight: 800;
+    color: #2563eb;
+    line-height: 1;
+}
+
+.resultado-label {
+    display: block;
+    font-size: 1rem;
+    color: #64748b;
+    margin-top: 4px;
+}
+
+.resultado-texto {
+    font-size: 1.1rem;
+    color: #475569;
+    margin-bottom: 32px;
+}
+
+.tabela-container {
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    margin-bottom: 24px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.tabela-scores {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabela-scores th {
+    text-align: left;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #94a3b8;
+    padding: 8px 12px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.tabela-scores td {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    color: #334155;
+    border-bottom: 1px solid #f8fafc;
+}
+
+.tabela-scores tr:last-child td {
+    border-bottom: none;
+}
+
+.tabela-scores .pontos-cell {
+    font-weight: 700;
+    color: #2563eb;
+}
+
+.acoes-resultado {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* ==================== Responsivo ==================== */
+
+@media (max-width: 600px) {
+    body {
+        padding: 12px;
+    }
+
+    #tela-inicio {
+        padding-top: 32px;
+    }
+
+    #tela-inicio h1 {
+        font-size: 1.6rem;
+    }
+
+    .instrucoes {
+        padding: 16px 20px;
+    }
+
+    .card-estado {
+        padding: 28px 16px;
+    }
+
+    .atributo-valor {
+        font-size: 1.8rem;
+    }
+
+    .perguntas {
+        grid-template-columns: 1fr;
+    }
+
+    .resultado-porcentagem {
+        font-size: 3rem;
+    }
+}

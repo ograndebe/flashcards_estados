@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards - Estados Brasileiros</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+
+        <!-- Tela de Início -->
+        <div id="tela-inicio" class="tela ativa">
+            <h1>Estados Brasileiros</h1>
+            <p class="subtitulo">Treine seus conhecimentos sobre os 27 estados do Brasil</p>
+            <div class="instrucoes">
+                <p>A cada rodada, um atributo do estado sera revelado (nome, sigla ou capital).</p>
+                <p>Voce deve responder as 2 perguntas sobre os atributos restantes.</p>
+                <p>Acertos acumulam pontos e tornam o estado mais "facil" — ele aparece depois na ordem.</p>
+            </div>
+            <button id="btn-comecar" class="btn-primario">Comecar</button>
+        </div>
+
+        <!-- Tela de Jogo -->
+        <div id="tela-jogo" class="tela">
+            <div class="cabecalho">
+                <span class="progresso">Estado <span id="progresso-atual">1</span> de <span id="progresso-total">27</span></span>
+                <div class="barra-progresso">
+                    <div id="barra-progresso-preenchimento" class="barra-progresso-preenchimento"></div>
+                </div>
+            </div>
+
+            <div class="card-estado">
+                <span id="atributo-label" class="atributo-label"></span>
+                <span id="atributo-valor" class="atributo-valor"></span>
+            </div>
+
+            <div class="perguntas">
+                <div id="pergunta-1" class="pergunta">
+                    <p id="pergunta-1-texto" class="pergunta-texto"></p>
+                    <div class="opcoes" id="opcoes-1"></div>
+                    <span id="feedback-1" class="feedback"></span>
+                </div>
+                <div id="pergunta-2" class="pergunta">
+                    <p id="pergunta-2-texto" class="pergunta-texto"></p>
+                    <div class="opcoes" id="opcoes-2"></div>
+                    <span id="feedback-2" class="feedback"></span>
+                </div>
+            </div>
+
+            <button id="btn-proximo" class="btn-primario" style="display:none;">Proximo</button>
+        </div>
+
+        <!-- Tela de Resultados -->
+        <div id="tela-resultados" class="tela">
+            <h1>Fim da Rodada!</h1>
+
+            <div class="resultado-destaque">
+                <span id="resultado-porcentagem" class="resultado-porcentagem"></span>
+                <span class="resultado-label">de acertos</span>
+            </div>
+
+            <p id="resultado-texto" class="resultado-texto"></p>
+
+            <div class="tabela-container">
+                <table class="tabela-scores">
+                    <thead>
+                        <tr>
+                            <th>Estado</th>
+                            <th>Sigla</th>
+                            <th>Pontos</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-scores-body"></tbody>
+                </table>
+            </div>
+
+            <div class="acoes-resultado">
+                <button id="btn-recomecar" class="btn-primario">Jogar novamente</button>
+                <button id="btn-limpar" class="btn-secundario">Zerar pontuacoes</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
