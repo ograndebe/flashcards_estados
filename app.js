@@ -45,6 +45,23 @@
         sigla: 'Qual a sigla?'
     };
 
+    var HTTP_CODES = [
+        100, 101, 200, 201, 202, 204, 206, 207,
+        300, 301, 302, 303, 304, 305, 307, 308,
+        400, 401, 402, 403, 404, 405, 406, 408,
+        409, 410, 411, 412, 413, 414, 415, 416,
+        417, 418, 420, 421, 422, 423, 424, 425,
+        426, 429, 431, 444, 450, 451, 498, 499,
+        500, 501, 502, 503, 504, 506, 507, 508,
+        509, 510, 511, 521, 522, 523, 525, 530, 599
+    ];
+
+    function getRandomRewardImage() {
+        var isCat = Math.random() < 0.5;
+        var code = HTTP_CODES[Math.floor(Math.random() * HTTP_CODES.length)];
+        return (isCat ? 'cats/' : 'dogs/') + code + '.jpg';
+    }
+
     // ==================== ESTADO DO JOGO ====================
 
     var STORAGE_KEY = 'flashcards_estados_scores';
@@ -196,6 +213,7 @@
         renderQuestion(1);
 
         document.getElementById('btn-proximo').style.display = 'none';
+        document.getElementById('recompensa').style.display = 'none';
         mostrarTela('tela-jogo');
     }
 
@@ -260,6 +278,11 @@
 
     function checkBothAnswered() {
         if (questions[0].answered && questions[1].answered) {
+            if (questions[0].isCorrect && questions[1].isCorrect) {
+                var img = document.getElementById('recompensa-img');
+                img.src = getRandomRewardImage();
+                document.getElementById('recompensa').style.display = 'block';
+            }
             document.getElementById('btn-proximo').style.display = 'block';
         }
     }
